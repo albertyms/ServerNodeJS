@@ -14,12 +14,15 @@ const tecnologias_1 = __importDefault(require("./rutas/tecnologias"));
 const noticias_1 = __importDefault(require("./rutas/noticias"));
 const express_fileupload_1 = __importDefault(require("express-fileupload"));
 const cors_1 = __importDefault(require("cors"));
+const express_1 = __importDefault(require("express"));
+const path_1 = __importDefault(require("path"));
 const server = new server_1.default();
 //BodyParser 
 server.app.use(body_parser_1.default.urlencoded({ extended: true }));
 server.app.use(body_parser_1.default.json());
 //CORS 
 server.app.use(cors_1.default({ origin: true, credentials: true }));
+server.app.use(express_1.default.static(path_1.default.join((__dirname + '/public'))));
 //File Upload
 server.app.use(express_fileupload_1.default());
 //Rutas de la aplicacion

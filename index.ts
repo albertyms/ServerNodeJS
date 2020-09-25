@@ -9,6 +9,8 @@ import tecnologiasRutas from "./rutas/tecnologias";
 import noticiasRutas from "./rutas/noticias";
 import fileUpload from 'express-fileupload';
 import cors from 'cors';
+import express from 'express';
+import path from 'path';
 
 const server = new Server();
 
@@ -19,9 +21,10 @@ server.app.use(bodyParser.json());
 //CORS 
 server.app.use(cors({origin: true, credentials: true}));
 
+server.app.use(express.static(path.join((__dirname + '/public'))));
+
 //File Upload
 server.app.use(fileUpload()); 
-
 //Rutas de la aplicacion
 server.app.use('/usuario', usuarioRutas);
 //crear mensaje
