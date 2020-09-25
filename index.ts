@@ -35,9 +35,19 @@ server.app.use('/tecnologia', tecnologiasRutas);
 //crear noticias
 server.app.use('/noticias', noticiasRutas);
 
+
+
 //conexion a base de datos
+
+let mongoDB: string;
+
+if(process.env.NODE_ENV === 'production') {
+    mongoDB = 'mongodb+srv://test:**123456789@cluster0.ew7h0.mongodb.net/testAngMon';
+} else {
+    mongoDB = 'mongodb://localhost:27017/testAngMon';
+}
 mongoose.connect(
-    'mongodb://localhost:27017/testAngMon',
+    mongoDB,
     { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false },
     (err) => {
         if (err) {

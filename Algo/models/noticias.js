@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Noticias = void 0;
 const mongoose_1 = require("mongoose");
 const noticiasSchema = new mongoose_1.Schema({
-    create: {
+    created: {
         type: Date
     },
     titulo: {

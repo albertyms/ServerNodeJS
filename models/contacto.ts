@@ -1,7 +1,7 @@
 import { Schema, model, Document } from 'mongoose';
 
 const contactoSchema = new Schema({
-    create: {
+    created: {
         type: Date
     },
     email: {

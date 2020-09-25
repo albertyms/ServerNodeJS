@@ -1,7 +1,7 @@
 import { Schema, model, Document } from 'mongoose';
 
 const noticiasSchema = new Schema({
-    create: {
+    created: {
         type: Date
     },
     titulo: {

@@ -35,7 +35,14 @@ server.app.use('/tecnologia', tecnologias_1.default);
 //crear noticias
 server.app.use('/noticias', noticias_1.default);
 //conexion a base de datos
-mongoose_1.default.connect('mongodb://localhost:27017/testAngMon', { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false }, (err) => {
+let mongoDB;
+if (process.env.NODE_ENV === 'production') {
+    mongoDB = 'mongodb+srv://test:**123456789@cluster0.ew7h0.mongodb.net/testAngMon';
+}
+else {
+    mongoDB = 'mongodb://localhost:27017/testAngMon';
+}
+mongoose_1.default.connect(mongoDB, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false }, (err) => {
     if (err) {
         throw err;
     }
